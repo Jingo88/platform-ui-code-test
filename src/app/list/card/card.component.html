@@ -1,0 +1,34 @@
+<div class="flex-container column">
+  <div class='flex-container justify-center'>
+    <div class='flex-container'>
+      <div class="width-5 height-5 padding-around-1">
+        <img class="width-full height-full" src="{{provider.img}}">
+      </div> 
+      <div>
+        <p 
+          class="margin-bottom-half">{{provider.name}}</p>
+        <p 
+          class="margin-top-0 margin-bottom-half">{{provider.address}}</p>
+        <p 
+          class="margin-top-0 margin-bottom-half">{{provider.phone}}</p>
+      </div>
+    </div>
+    
+    <div *ngIf="type === 'selected'">
+      <button 
+      class="remove-button"
+        (click)="emitToggleSelect()">
+        x
+      </button>
+    </div>
+  </div>
+
+  <div class="flex-container justify-center">
+    <div *ngIf="type === 'unselected'" class="select-button">
+      <button 
+        (click)="emitToggleSelect()">
+        Select This Provider
+      </button>
+    </div>
+  </div>
+</div>

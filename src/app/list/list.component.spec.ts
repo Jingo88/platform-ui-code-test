@@ -1,4 +1,11 @@
 import { ListComponent } from './list.component';
+import { 
+  mockProviderObj, 
+  mockSelectedArray, 
+  mockUnselectedArray, 
+  mockUpdateSelected, 
+  mockUpdateUnSelected,
+} from './list.component.mock';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -38,4 +45,27 @@ describe('ListComponent', () => {
       expect(component.selectedProviders.length).toEqual(0);
     });
   });
+
+  describe('toggleSelect',()=>{
+    it('should call update provider when toggle is invoked', ()=>{
+      spyOn(component, 'updateProvider');
+      component.toggleSelect(mockProviderObj);
+      expect(component.updateProvider).toHaveBeenCalledWith(mockProviderObj, mockUnselectedArray, mockSelectedArray);
+    })
+  });
+
+  describe('updateProvider', ()=>{
+
+    it('should update the provider arrays', ()=>{
+      component.updateProvider(mockProviderObj, mockUnselectedArray, mockSelectedArray);
+      expect(component.selectedProviders).toEqual(mockUpdateSelected);
+      expect(component.unselectedProviders).toEqual(mockUpdateUnSelected);
+    })
+
+    it('should call localStorage set item',()=>{
+      spyOn(localStorage, 'setItem');
+      component.updateProvider(mockProviderObj, mockUnselectedArray, mockSelectedArray);
+      expect(localStorage.setItem).toHaveBeenCalled();
+    })
+  })
 });

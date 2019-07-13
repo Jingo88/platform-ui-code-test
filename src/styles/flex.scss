@@ -1,0 +1,23 @@
+.flex-container{
+  display: flex;
+}
+
+.column{
+  flex-direction: column;
+}
+
+.justify-between{
+  justify-content: space-between;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.flex-grow-1{
+  flex-grow: 1;
+}
+
+.flex-grow-2{
+  flex-grow: 2;
+}

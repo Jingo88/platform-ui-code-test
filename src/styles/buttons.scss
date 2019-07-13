@@ -1,0 +1,30 @@
+.select-button{
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align:center;
+  button{
+    color: #ffffff;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: #1A76BB;
+    border-radius: 30px;
+    font-size: 1rem;
+    &:hover{
+      background-color: #ADD8E6;
+    }
+  }
+}
+
+.remove-button{
+  font-size: 1rem;
+  background: #f7f7f7;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #1A76BB;
+  color: #1A76BB;
+  margin-top: .5rem;
+  &:hover{
+    background-color: #1A76BB;
+    color: #ffffff;
+  }
+}

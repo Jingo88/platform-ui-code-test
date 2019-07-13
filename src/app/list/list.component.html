@@ -1,4 +1,30 @@
-<div class="list-container">
-  <h2>Providers</h2>
-
+<div class="list-container flex-container">
+  <div class='width-50'>
+    <div class="text-center flex-container justify-center">
+      <h2 class="border-bottom">Selected Providers</h2>
+    </div>
+    
+    <div *ngFor="let provider of selectedProviders">
+      <app-card
+        [provider]="provider"
+        (toggleSelect)="toggleSelect($event)"
+        [type]="types.selected">
+      </app-card>
+    </div>
+  </div>
+  
+  <div class='width-50'>    
+    <div class="text-center flex-container justify-center">
+      <h2 class="border-bottom">Available Providers</h2>
+    </div>
+    <div *ngFor="let provider of unselectedProviders">
+      <app-card
+        [provider]="provider"
+        (toggleSelect)="toggleSelect($event)"
+        [type]="types.unselected">
+      </app-card>
+    </div>
+  </div>
+  
 </div>
+  

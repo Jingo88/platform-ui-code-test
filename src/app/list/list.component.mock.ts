@@ -4,7 +4,6 @@ export const mockProviderObj = {
   img: "assets/keanu.jpg",
   name: "Jason",
   phone: "4343219384",
-  type: "unselected",
 }
 
 export const mockSelectedArray = [];

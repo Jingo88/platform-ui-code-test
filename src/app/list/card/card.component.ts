@@ -11,12 +11,4 @@ export class CardComponent {
   @Output() toggleSelect: EventEmitter<Object> = new EventEmitter();
 
   constructor() { }
-  
-  emitToggleSelect(){
-    this.toggleSelect.emit({
-      ...this.provider,
-      type: this.type
-    })
-  }
-
 }

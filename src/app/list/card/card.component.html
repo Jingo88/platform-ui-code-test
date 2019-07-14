@@ -1,23 +1,23 @@
 <div class="flex-container column">
   <div class='flex-container justify-center'>
     <div class='flex-container'>
-      <div class="width-5 height-5 padding-around-1">
-        <img class="width-full height-full" src="{{provider.img}}">
+      <div class="w-5-rem h-5-rem pad-around-1-rem">
+        <img class="w-100-per h-100-per" src="{{provider.img}}">
       </div> 
       <div>
         <p 
-          class="margin-bottom-half">{{provider.name}}</p>
+          class="mar-bottom-half-rem">{{provider.name}}</p>
         <p 
-          class="margin-top-0 margin-bottom-half">{{provider.address}}</p>
+          class="margin-top-0 mar-bottom-half-rem">{{provider.address}}</p>
         <p 
-          class="margin-top-0 margin-bottom-half">{{provider.phone}}</p>
+          class="margin-top-0 mar-bottom-half-rem">{{provider.phone}}</p>
       </div>
     </div>
     
     <div *ngIf="type === 'selected'">
       <button 
-      class="remove-button"
-        (click)="emitToggleSelect()">
+        class="remove-button"
+        (click)="toggleSelect.emit(provider)">
         x
       </button>
     </div>
@@ -26,7 +26,7 @@
   <div class="flex-container justify-center">
     <div *ngIf="type === 'unselected'" class="select-button">
       <button 
-        (click)="emitToggleSelect()">
+        (click)="toggleSelect.emit(provider)">
         Select This Provider
       </button>
     </div>

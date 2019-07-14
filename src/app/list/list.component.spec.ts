@@ -46,25 +46,36 @@ describe('ListComponent', () => {
     });
   });
 
-  describe('toggleSelect',()=>{
-    it('should call update provider when toggle is invoked', ()=>{
-      spyOn(component, 'updateProvider');
-      component.toggleSelect(mockProviderObj);
-      expect(component.updateProvider).toHaveBeenCalledWith(mockProviderObj, mockUnselectedArray, mockSelectedArray);
+  describe('selectProvider',()=>{
+    it('should update arrays when called, Jason should be in selectedProviders', ()=>{
+      component.selectProvider(mockProviderObj);
+      expect(component.selectedProviders).toEqual(mockUpdateSelected);
+      expect(component.unselectedProviders).toEqual(mockUpdateUnSelected);
+    });
+    it('should call updateStorage when finished',()=>{
+      spyOn(component, 'updateStorage');
+      component.selectProvider(mockProviderObj);
+      expect(component.updateStorage).toHaveBeenCalled();
     })
   });
 
-  describe('updateProvider', ()=>{
-
-    it('should update the provider arrays', ()=>{
-      component.updateProvider(mockProviderObj, mockUnselectedArray, mockSelectedArray);
-      expect(component.selectedProviders).toEqual(mockUpdateSelected);
-      expect(component.unselectedProviders).toEqual(mockUpdateUnSelected);
+  describe('unselectProvider', ()=>{
+    it('should update arrays when called, selectedProviders should be empty', ()=>{
+      component.unSelectProvider(mockProviderObj);
+      expect(component.selectedProviders).toEqual(mockSelectedArray);
+      expect(component.unselectedProviders).toEqual(mockUnselectedArray);
     })
+    it('should call updateStorage when finished',()=>{
+      spyOn(component, 'updateStorage');
+      component.unSelectProvider(mockProviderObj);
+      expect(component.updateStorage).toHaveBeenCalled();
+    })
+  });
 
-    it('should call localStorage set item',()=>{
+  describe('updateStorage', ()=>{
+    it('should call local storage set item when invoked', ()=>{
       spyOn(localStorage, 'setItem');
-      component.updateProvider(mockProviderObj, mockUnselectedArray, mockSelectedArray);
+      component.updateStorage();
       expect(localStorage.setItem).toHaveBeenCalled();
     })
   })
